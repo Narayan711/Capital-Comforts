@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <style>
+          * {
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+          }
+
+          body {
+               font-family: Arial, sans-serif;
+               background-color: maroon;
+               background-repeat: no-repeat;
+               background-size: 100%;
+               margin: 0;
+               align-items: center;
+          }
+
+          header {
+               background-color: white;
+               padding: 10px 0;
+               position: fixed;
+               width: 100%;
+               z-index: 100;
+          }
+
+          .navbar {
+               max-width: 1200px;
+               margin: 0 auto;
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               padding: 0 20px;
+          }
+
+          .menu,
+          .dropdown {
+               position: relative;
+               display: inline-block;
+          }
+
+
+          .dropbtn {
+               background-color: maroon;
+               color: white;
+               border: none;
+               margin: 20px;
+               padding: 10px 15px;
+               font-size: 16px;
+               cursor: pointer;
+               border-radius: 5px;
+          }
+
+          .homebtn,
+          .hotelsbtn,
+          .logbtn,
+          .aboutbtn,
+          .backbtn {
+               background-color: maroon;
+               color: white;
+               margin: 20px;
+               border: none;
+               padding: 10px 15px;
+               font-size: 16px;
+               cursor: pointer;
+               border-radius: 5px;
+          }
+
+          .dropdown-content {
+               display: none;
+               position: absolute;
+               background-color: #fff;
+               min-width: 160px;
+               box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+               z-index: 1;
+          }
+
+          .dropdown-content a {
+               color: #333;
+               padding: 12px 16px;
+               text-decoration: none;
+               display: block;
+          }
+
+          .dropdown-content a:hover {
+               background-color: #FF5733;
+               color: #fff;
+          }
+
+          .dropdown:hover .dropdown-content {
+               display: block;
+          }
+
+          main {
+               text-align: center;
+               padding-top: 150px;
+          }
+
+          .search-container {
+               background-color: white;
+               margin: 80px;
+               padding: 20px;
+               border-radius: 5px;
+               display: flex;
+               align-items: center;
+          }
+
+          .search-container label,
+          .search-container input,
+          .search-container button {
+               margin-right: 10px;
+          }
+
+          label {
+               display: block;
+               margin-bottom: 10px;
+          }
+
+          input {
+               padding: 10px;
+          }
+
+          .button-wide {
+               background-color: maroon;
+               color: white;
+               border: none;
+               padding: 15px 40px;
+               font-size: 16px;
+               cursor: pointer;
+               border-radius: 5px;
+          }
+
+          footer {
+               background-color: sandybrown;
+               color: maroon;
+               padding: 20px 0;
+               text-align: center;
+          }
+
+          .footer-content {
+               max-width: 1200px;
+               margin: 0 auto;
+          }
+
+          .footer-content a {
+               color: #fff;
+               text-decoration: none;
+               margin: 0 10px;
+          }
+
+          .partners {
+               margin-top: 10px;
+          }
+
+          footer {
+               font-size: 14px;
+          }
+     </style>
+     <title>PG Accommodation</title>
+     <script>
+          function goBack() {
+               window.history.back();
+          }
+
+     </script>
+</head>
+
+<body background="./Home Page Bg.jpg">
+     <header>
+          <nav class="navbar">
+               <div class="logo">
+                    <a href="./Home.html">
+                         <img src="./LOGO.png" alt="Logo" height=100px></a>
+               </div>
+               <div class="backfor">
+     
+               </div>
+               <div class="menu">
+                    <a href="./Home.html"><button class="homebtn">Home</button></a>
+                    <a href="./hotels.html"><button class="hotelsbtn">Hotels</button></a>
+                    <a href="./About.html"><button class="aboutbtn">About Us</button></a>
+                    <a href="./index.html"><button class="logbtn">Log Out</button></a>
+                    <div class="dropdown">
+                         <button class="dropbtn">Menu</button>
+                         <div class="dropdown-content">
+                              <a href="./Home.html">Home</a>
+                              <a href="./hotels.html">Hotels</a>
+                              <a href="./About.html">About Us</a>
+                              <a href="./index.html">Log Out</a>
+                         </div>
+                         <button class="backbtn" onclick="goBack()">&#8656 Go Back</button>
+                    </div>
+     
+     
+               </div>
+     
+     
+          </nav>
+     </header>
+<br><br>
+     <main>
+          <br><br><br><br><br><br><br>
+          <div class="search-container">
+               <label for="checkin">Check-in Date:</label>
+               <input type="date" id="checkin" required>
+
+               <label for="checkout">Check-out Date:</label>
+               <input type="date" id="checkout" required>
+
+               <label for="guests">No. of Guests:</label>
+               <input type="number" id="guests" min="1" value="1" required>
+
+               <a href="./hotels.html"><button class="button-wide"><b><i>Book your Hotel Now!</i></b></button></a>
+          </div>
+          <br><br><br><br><br><br><br>
+     </main>
+
+     <footer>
+          <div class="footer-content">
+               <div class="copyright">
+                    &copy; 2023 PG Accommodation. All rights reserved.
+               </div>
+               <div class="partners">
+                    Partner Organizations:
+                    <a href="https://www.makemytrip.com/" target="_blank">Make My Trip</a>,
+                    <a href="https://www.trivago.in/" target="_blank">Trivago</a>,
+                    <a href="https://www.agoda.com/?cid=1844104" target="_blank">Agoda</a>
+               </div>
+               <div class="contact">
+                    <a href="./About.html">Contact Us</a>
+
+               </div>
+          </div>
+     </footer>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style>
+  /* Reset some default styles for browsers */
+  body,
+  h1,
+  p {
+   margin: 0;
+   padding: 0;
+  }
+
+  /* Define the color scheme */
+  body {
+   background-repeat: no-repeat;
+   background-size: 100%;
+   /* Light Gray */
+   color: #333;
+   /* Dark Gray */
+   font-family: Arial, sans-serif;
+  }
+
+  .container {
+   max-width: 800px;
+   margin: 0 auto;
+   padding: 20px;
+   background-color: #FFF;
+   /* White */
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   text-align: center;
+   margin-top: 8%;
+   /* Center-align the container */
+  }
+
+  h1 {
+   margin-bottom: 20px;
+  }
+
+  .payment-options {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   /* Center-align the payment options */
+   gap: 20px;
+  }
+
+  .payment-option {
+   flex: 1;
+   padding: 20px;
+   background-color: #FFF;
+   border-radius: 5px;
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .payment-option label {
+   display: block;
+   font-weight: bold;
+   margin-bottom: 10px;
+  }
+
+  .amount-row {
+   margin-top: 20px;
+   text-align: center;
+  }
+
+  #transaction-amount {
+   width: 100px;
+   padding: 5px;
+   text-align: center;
+   font-weight: bold;
+  }
+
+  #review-button,
+  #confirm-payment {
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   font-size: 16px;
+   margin: 5px;
+  }
+
+  #review-button {
+   background-color: #28A745;
+   /* Green */
+   color: #FFF;
+  }
+
+  #confirm-payment {
+   background-color: #007BFF;
+   /* Blue */
+   color: #FFF;
+  }
+ </style>
+ <title>Checkout - Travel Booking</title>
+</head>
+
+<body background="./payment.jpg">
+ <div class="container">
+  <h1>Final Payment</h1>
+  <div class="payment-options">
+   <div class="payment-option">
+    <input type="radio" id="cash" name="payment-method" value="cash" onclick="disableAllExcept('cash')">
+    <label for="cash">Pay with Cash</label>
+   </div>
+   <div class="payment-option">
+    <input type="radio" id="upi" name="payment-method" value="upi" onclick="enableUPIOptions()">
+    <label for="upi">UPI Payment</label>
+    <div class="upi-options">
+     <label for="upi-provider">Select UPI Service:</label>
+     <select id="upi-provider" name="upi-provider" disabled>
+      <option value="paytm">Paytm</option>
+      <option value="bhim">Bhim UPI</option>
+      <option value="amazon-pay">Amazon Pay</option>
+      <option value="bharatpe">BharatPe</option>
+     </select>
+    </div>
+   </div>
+   <div class="payment-option">
+    <input type="radio" id="debit-card" name="payment-method" value="debit-card"
+     onclick="disableAllExcept('debit-card')">
+    <label for="debit-card">Debit Card Payment</label>
+    <div class="debit-card-details">
+     <label for="card-number">Card Number:</label>
+     <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" disabled>
+     <label for="bank-name">Bank Name:</label>
+     <input type="text" id="bank-name" name="bank-name" placeholder="Bank Name" disabled>
+     <label for="cvv">CVV:</label>
+     <input type="text" id="cvv" name="cvv" placeholder="123" disabled>
+    </div>
+   </div>
+  </div>
+  <div class="amount-row">
+   <label for="transaction-amount">Total Amount:</label>
+   <input type="text" id="transaction-amount" name="transaction-amount" type="number" style="text-align: left;" required>
+  </div>
+  <div class="buttons">
+   <a href="./paymentDone.html">
+    <input type="button" id="review-button" value="Confirm Payment" />
+   </a>
+   <a href="./Home.html">
+    <input type="button" id="confirm-payment" value="Review Hotels" />
+   </a>
+  </div>
+ </div>
+
+ <script>
+  function disableAllExcept(selectedOption) {
+   const options = ['cash', 'upi', 'debit-card'];
+
+   options.forEach(option => {
+    const element = document.getElementById(option);
+    if (option === selectedOption) {
+     element.checked = true;
+    } else {
+     element.checked = false;
+    }
+    const fields = document.querySelectorAll(`.${option}-details input, .${option}-details select`);
+    fields.forEach(field => {
+     field.disabled = option !== selectedOption;
+    });
+   });
+  }
+
+  function enableUPIOptions() {
+   const upiOption = document.getElementById('upi');
+   const upiFields = document.querySelectorAll('.upi-options select');
+   upiOption.checked = true;
+   upiFields.forEach(field => {
+    field.disabled = false;
+   });
+
+   // Disable other options and their fields
+   const optionsToDisable = ['cash', 'debit-card'];
+   optionsToDisable.forEach(option => {
+    const element = document.getElementById(option);
+    element.checked = false;
+    const fields = document.querySelectorAll(`.${option}-details input, .${option}-details select`);
+    fields.forEach(field => {
+     field.disabled = true;
+    });
+   });
+  }
+ </script>
+</body>
+
+</html>

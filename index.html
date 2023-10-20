@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <title>Capital Comforts - Login</title>
+ <style>
+  /* Basic CSS for styling the page */
+  body {
+   font-family: Arial, Helvetica, sans-serif;
+   display: flex;
+   height: 100vh;
+   margin: 0;
+  }
+
+  .left-column {
+   width: 25%;
+   /* Updated width to 25% */
+   background-color: white;
+   /* Background color for the left column */
+   color: white;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  }
+
+  .right-column {
+   width: 75%;
+   /* Updated width to 75% */
+   background-color: peachpuff;
+   background-image: url("./background.webp");
+   background-repeat: no-repeat;
+   background-size: 130%;
+   /* Background color for the right column */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
+
+  .container {
+   width: 60%;
+   /* Reduce the width to make the container smaller */
+   text-align: center;
+   background-color: rgba(255, 255, 255, 0.7);
+   /* 70% transparent white */
+   border-radius: 10px;
+   /* Add rounded corners for style */
+   padding: 20px;
+   /* Add some padding to make it visually appealing */
+  }
+
+  #login{
+   color: white;
+  }
+
+  h1 {
+   font-size: 24px;
+   margin-bottom: 20px;
+   color: black;
+  }
+
+  img {
+   max-width: 100%;
+   height: auto;
+   margin-bottom: 20px;
+  }
+
+  label {
+   display: block;
+   margin-bottom: 8px;
+   text-align: center;
+   /* Center-align labels */
+  }
+
+  /* Reduce the width of input boxes by 50% and center-align them */
+  input[type=text],
+  input[type=email],
+  input[type=password] {
+   width: 50%;
+   /* Reduced width by 50% */
+   padding: 12px;
+   margin: 8px auto;
+   /* Center-align the input boxes horizontally */
+   border: 1px solid #ccc;
+   box-sizing: border-box;
+   display: block;
+  }
+
+  button {
+   background-color: #4CAF50;
+   color: white;
+   padding: 14px 20px;
+   margin: 10px auto;
+   /* Center-align the button horizontally */
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+  }
+
+  button:hover {
+   background-color: #45a049;
+  }
+ </style>
+</head>
+
+<body>
+ <div class="left-column">
+  <img src="./LOGO.png" alt="Logo"> <!-- Replace with your logo image -->
+  <h1>Capital Comforts</h1>
+ </div>
+ <div class="right-column">
+  <div class="container">
+   <h2>Login</h2>
+   <form action="process_registration.php" method="post">
+
+    <label for="email"><b>Email:</b></label>
+    <input type="email" placeholder="Enter your email" name="email" required>
+
+    <label for="password"><b>Password:</b></label>
+    <input type="password" placeholder="Enter your password" name="password" required>
+
+    <button type="submit"><a id="login" href="./Home.html">Login</a></button>
+   </form>
+   <p>Don't have an account? <a href="./Registration.html">&nbsp;Register</a></p>
+  </div>
+ </div>
+</body>
+
+</html>
